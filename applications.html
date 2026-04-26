@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>应用场景 - SeeRock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0d0f;--bg2:#111518;--surface:#1a2228;--border:rgba(255,255,255,0.07);--accent:#c8a96e;--accent2:#dfc28d;--text:#e8e2d9;--text2:#9da8b0;--text3:#5e6e78;--ffd:'Bebas Neue',sans-serif;--ffs:'Instrument Serif',serif;--ffb:'DM Sans',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--ffb);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.025;pointer-events:none;z-index:9999;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;background:rgba(10,13,15,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.3s;}
+.nlg{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nlgm{width:51px;height:51px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}.nlgm img{display:block;width:100%;height:100%;object-fit:contain;}
+.nlgt{font-family:var(--ffd);font-size:22px;letter-spacing:0.08em;color:var(--text);}
+.nls{display:flex;align-items:center;list-style:none;}
+.nls a{display:block;padding:0 1.1rem;color:var(--text2);text-decoration:none;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;position:relative;}
+.nls a::after{content:'';position:absolute;bottom:-4px;left:1.1rem;right:1.1rem;height:1px;background:var(--accent);transform:scaleX(0);transition:transform 0.25s;transform-origin:left;}
+.nls a:hover,.nls a.act{color:var(--text);}
+.nls a:hover::after,.nls a.act::after{transform:scaleX(1);}
+.nc{padding:9px 20px!important;border:1px solid var(--accent);border-radius:4px;color:var(--accent)!important;}
+.nc:hover{background:var(--accent)!important;color:var(--bg)!important;}
+.nc::after{display:none!important;}
+.si{max-width:1280px;margin:0 auto;padding:0 4rem;}
+.sl{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;}
+.sl-line{width:30px;height:1px;background:var(--accent);}
+.sl-txt{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);}
+.sl-num{font-family:var(--ffd);font-size:11px;letter-spacing:0.15em;color:var(--text3);margin-left:auto;}
+.ph{padding:160px 4rem 80px;max-width:1280px;margin:0 auto;}
+.ph-ey{display:flex;align-items:center;gap:12px;margin-bottom:2rem;}
+.ph-ey-line{width:40px;height:1px;background:var(--accent);}
+.ph-ey-txt{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);}
+h1.pht{font-family:var(--ffd);font-size:clamp(56px,7vw,100px);line-height:0.92;letter-spacing:0.02em;color:var(--text);margin-bottom:2rem;}
+h1.pht em{font-style:normal;color:var(--accent);}
+.phs{font-family:var(--ffs);font-style:italic;font-size:19px;color:var(--text2);line-height:1.65;max-width:700px;margin-bottom:1.5rem;}
+.phd{font-size:15px;color:var(--text3);line-height:1.85;max-width:700px;}
+.hs{width:100%;height:440px;position:relative;overflow:hidden;}
+.hs img{width:100%;height:100%;object-fit:cover;filter:brightness(0.4) saturate(0.5);}
+.hs-ov{position:absolute;inset:0;background:linear-gradient(to bottom,var(--bg) 0%,transparent 20%,transparent 80%,var(--bg2) 100%);}
+.aw{padding:100px 0;background:var(--bg2);border-top:1px solid var(--border);}
+.ai{display:grid;grid-template-columns:280px 1fr;gap:80px;align-items:start;}
+.anv{position:sticky;top:100px;}
+.anv-t{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;gap:10px;}
+.anv-t::before{content:'';display:block;width:20px;height:1px;background:var(--accent);}
+.anv-l{list-style:none;display:flex;flex-direction:column;gap:2px;}
+.anv-l a{display:block;padding:10px 14px;font-size:13px;color:var(--text3);text-decoration:none;border-left:1px solid var(--border);transition:color 0.2s,border-color 0.2s,padding-left 0.2s;}
+.anv-l a:hover{color:var(--text);border-color:var(--accent);padding-left:20px;}
+.mods{display:flex;flex-direction:column;gap:80px;}
+.mod{border-top:1px solid var(--border);padding-top:56px;}
+.mod-lbl{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
+h2.mod-t{font-family:var(--ffd);font-size:clamp(28px,3vw,44px);line-height:0.95;letter-spacing:0.03em;color:var(--text);margin-bottom:1.5rem;}
+.mod-img{width:100%;height:300px;object-fit:cover;border-radius:2px;filter:brightness(0.6) saturate(0.6);margin-bottom:1.5rem;display:block;}
+.mod-img-sm{width:100%;height:220px;object-fit:cover;border-radius:2px;filter:brightness(0.6) saturate(0.6);margin-bottom:1.5rem;display:block;}
+.mod-p{font-size:15px;color:var(--text2);line-height:1.85;}
+h3.mod-sub{font-family:var(--ffs);font-style:italic;font-size:18px;color:var(--text);margin:2rem 0 1rem;border-left:2px solid var(--accent);padding-left:16px;}
+.cs{padding:100px 0;background:var(--bg);border-top:1px solid var(--border);}
+h2.csh{font-family:var(--ffd);font-size:clamp(36px,3.5vw,52px);line-height:1;letter-spacing:0.03em;color:var(--text);margin-bottom:56px;}
+.cg{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.cc{background:var(--bg);display:flex;align-items:center;justify-content:center;padding:30px 20px;filter:grayscale(1) brightness(0.5);transition:filter 0.3s,background 0.3s;}
+.cc:hover{background:var(--surface);filter:grayscale(0) brightness(1);}
+.cc img{max-height:36px;max-width:110px;object-fit:contain;}
+footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 0 40px;}
+.fi{max-width:1280px;margin:0 auto;padding:0 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.fl{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.flm{width:42px;height:42px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}.flm img{display:block;width:100%;height:100%;object-fit:contain;}
+.flt{font-family:var(--ffd);font-size:18px;letter-spacing:0.08em;color:var(--text2);}
+.flinks{display:flex;gap:2rem;list-style:none;flex-wrap:wrap;}
+.flinks a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);text-decoration:none;transition:color 0.2s;}
+.flinks a:hover{color:var(--text2);}
+.fc{font-size:12px;color:var(--text3);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.d1{transition-delay:0.1s;}.d2{transition-delay:0.22s;}.d3{transition-delay:0.36s;}
+.cursor{position:fixed;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transition:transform 0.15s;}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(200,169,110,0.4);border-radius:50%;pointer-events:none;z-index:9997;transition:width 0.3s,height 0.3s;}
+@media(max-width:900px){nav{padding:0 1.5rem;}.ph,.si,.fi{padding-left:1.5rem;padding-right:1.5rem;}.ai{grid-template-columns:1fr;}.anv{position:static;}.cg{grid-template-columns:repeat(3,1fr);}.fi{flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div><div class="cursor-ring" id="cursor-ring"></div>
+<nav id="nav">
+  <a href="index.html" class="nlg"><div class="nlgm"><img src="img/seerock-logo.png" alt="SeeRock logo"></div><span class="nlgt">SeeRock</span></a>
+  <ul class="nls"><li><a href="index.html">首页</a></li><li><a href="technology.html">技术</a></li><li><a href="applications.html" class="act">应用</a></li><li><a href="publications.html">论文成果</a></li><li><a href="about.html">关于我们</a></li><li><a href="contact.html" class="nc">联系我们</a></li></ul>
+</nav>
+<div class="ph">
+  <div class="ph-ey reveal"><div class="ph-ey-line"></div><span class="ph-ey-txt">应用场景</span></div>
+  <h1 class="pht reveal d1">UNLOCKING<br>GEOTECHNICAL<br><em>INTELLIGENCE</em></h1>
+  <p class="phs reveal d2">AI 驱动的三维视觉能力，为采矿、隧道与地下工程提供自动化、高保真的岩土工程智能。</p>
+  <p class="phd reveal d3">从连续工作面测绘与结构表征，到块度分布分析和岩体评估，帮助工程师与决策者更深入、更快速、更客观地洞察岩体状态。</p>
+</div>
+<div class="hs reveal"><img src="img/AI.png" alt="AI 岩土工程智能" ><div class="hs-ov"></div></div>
+<section class="aw">
+  <div class="si">
+    <div class="ai">
+      <div class="anv reveal">
+        <div class="anv-t">智能应用矩阵</div>
+        <ul class="anv-l">
+          <li><a href="#m1">矿山多视角摄影三维重建与岩体结构智能解析</a></li>
+          <li><a href="#m2">数字岩心 AI 编录与高精度建模</a></li>
+          <li><a href="#m3">随钻视频孔壁成像与地应力智能分析</a></li>
+          <li><a href="#m4">无人机边坡智能航测与三维结构分析系统</a></li>
+          <li><a href="#m5">岩石颗粒智能粒径识别服务</a></li>
+          <li><a href="#m6">小尺度岩体 CT 扫描服务</a></li>
+        </ul>
+      </div>
+      <div class="mods">
+        <div class="mod reveal" id="m1"><div class="mod-lbl">模块 01</div><h2 class="mod-t">矿山多视角摄影三维重建与<br>岩体结构智能解析</h2><img src="img/application/矿山多视角摄影三维重建与岩体结构智能解析.png" alt="矿山多视角摄影三维重建与岩体结构智能解析" class="mod-img"><p class="mod-p">矿山多视角摄影三维重建与岩体结构智能解析系统，由多目矿山成像采集装备 + 智能解析软件成套组成，面向露天矿台阶、地下巷道、采场工作面、隧洞掌子面等近景岩体结构面场景。依托专用多目成像装备完成多视角高清图像快速采集，搭载三维重建与 AI 智能识别算法，自动提取裂隙迹线、节理、断层边界及面状结构面，生成附带空间坐标与产状参数的三维岩体结构模型。整套成套系统可替代传统人工现场编录，解决人工调查覆盖范围受限、高危区域无法抵近观测、成果依赖个人经验、一致性重复性差、原始数据难以数字化归档建模等痛点。单个工作面现场影像采集仅需分钟级至十几分钟，软件端三维重建与结构面智能识别可在数分钟至数十分钟内全自动完成，实现当班采集、当班识别、当班出参，支撑现场即时分析与快速生产决策。配套软件可自动输出结构面倾向、倾角、间距、迹线长度、节理组分类、赤平投影图、节理玫瑰图、CSV 参数报表、DXF 结构圆盘模型等成果，支持无缝导入 FLAC3D、3DEC、AutoCAD 等主流工程分析设计软件。系统核心价值是以低成本模式实现更安全、更高效、标准化、可追溯、可动态更新的岩体结构精细化调查，为巷道支护设计、爆破方案优化、边坡稳定性评价、危岩块体识别及矿山整体风险管控，提供数字化、可视化、可落地的技术依据。</p></div>
+        <div class="mod reveal" id="m2"><div class="mod-lbl">模块 02</div><h2 class="mod-t">数字岩心 AI 编录与<br>高精度建模</h2><img src="img/application/数字岩心 AI 编录与高精度建模.png" alt="数字岩心 AI 编录与高精度建模" class="mod-img"><p class="mod-p">数字岩心 AI 编录与高精度建模装备系统，由岩心滑轨成像采集装备 + 智能编录建模软件成套组成，面向钻孔岩心自动化智能编录场景。依托专用滑轨式成像平台，对岩心箱开展稳定、连续、标准化全景拍摄，融合 AI 智能识别算法、摄影测量技术与 Gaussian Splatting 高斯溅射三维重建技术，自动识别岩心分段、裂隙、断口、破碎带、岩性分界、刻度标尺及人工标注信息，生成附带空间位置与精细结构参数的三维数字岩心模型。整套成套系统可完全替代传统人工岩心编录模式，解决人工编录耗时费力、执行标准不统一、成果过度依赖人员经验、历史资料复查溯源困难、原始岩心数据难以数字化归档与三维建模等行业痛点。单箱岩心影像采集可实现分钟级快速完成；基于高斯溅射技术的三维岩心重建，能够分钟级完成高精度建模与实景可视化；岩心自动分段、裂隙智能识别及标准化编录全流程，可在分钟级至十分钟级全自动办结，支撑岩心数据快速入库、实时迭代更新与大批量自动化批量处理。配套软件可自动输出岩心分段结果、裂隙空间位置、节理间距参数、RQD 指标、破碎带延展长度、岩性分层划分、数字岩心影像档案、高精度三维数字岩心模型及标准化编录成果报表，成果数据可直接支撑 RMR、Q 值等主流岩体质量分级评价。系统核心价值是以低成本实现高效率、标准化、可追溯、动态可更新的岩心全流程数字化智能编录，为矿产资源评价、岩体质量等级划分、三维地质建模、裂隙网络仿真建模及矿山开采规划设计，提供标准化、数字化、可复用的基础技术依据。</p></div>
+        <div class="mod reveal" id="m3"><div class="mod-lbl">模块 03</div><h2 class="mod-t">随钻视频孔壁成像与<br>地应力智能分析</h2><img src="img/application/随钻视频孔壁成像与地应力智能分析.png" alt="随钻视频孔壁成像与地应力智能分析" class="mod-img"><p class="mod-p">随钻视频孔壁成像与地应力智能分析系统，由随钻孔壁成像采集装备 + 地应力智能分析软件成套组成，面向钻孔内部结构实时识别、孔壁连续展开分析及地应力特征智能判识场景。依托随钻摄像、钻孔内窥及孔壁专用成像装置，可在钻进作业过程或成孔后检测环节，连续采集钻孔岩壁全景影像；融合视频稳像、图像增强、深度配准、孔壁圆周展开及 AI 智能识别算法，自动解译提取孔壁裂隙、层理构造、破碎带、软弱夹层、渗水通道与岩性分界面，同时依据孔壁剥落、片帮垮落、孔壁破裂方位等特征，智能辅助研判主应力方向、应力集中区域及高地应力风险区段，生成附带深度坐标与圆周方位信息的钻孔展开图谱及结构化专业分析成果。整套系统可全面替代传统钻孔视频人工查看与纸质编录模式，解决传统方式无法实时处理、孔壁影像难以连续展平、结构特征无法定量识别、成果数据难以标准化入库等突出问题，同时弥补岩心资料与孔壁空间位置对应模糊、软弱构造带识别滞后、高地应力区微破裂迹象难以及时捕捉等技术短板。单段钻孔视频采集可与钻进施工或钻后检测同步开展，孔壁全景展开、裂隙智能识别与结构参数提取均可实现分钟级全自动处理；在随钻作业场景下，可达成边采集、边展平、边识别、边迭代的一体化作业模式，为掌子面前方地质结构及地应力演化特征提供即时动态反馈。配套软件可自动输出孔壁圆周展开图、裂隙深度定位、裂隙延展轨迹、结构面倾角倾向、破碎带空间分布、岩性分层界线、渗水异常区域、孔壁剥落片帮位置、钻孔破裂方位图谱及钻孔结构专业日志；成果可与工作面岩体结构识别、岩心智能编录及现场实测地应力数据开展联合耦合分析，辅助精准判定主应力方位、圈定应力集中区、识别构造破碎带及预判潜在岩爆高风险区域。系统核心价值是以低成本实现全过程连续化、分析高效化、成果可追溯、数据可动态更新的钻孔结构与地应力特征精细化研判，为主应力方向精准判识、超前地质预报、导水构造识别、破碎带精确定位、高地应力风险评估、采掘作业风险预警及矿山优化设计，提供专业可靠、实时可用的数字化决策依据。</p></div>
+        <div class="mod reveal" id="m4"><div class="mod-lbl">模块 04</div><h2 class="mod-t">无人机边坡智能航测与<br>三维结构分析系统</h2><img src="img/application/无人机边坡智能航测与三维结构分析系统.png" alt="无人机边坡智能航测与三维结构分析系统" class="mod-img"><p class="mod-p">无人机边坡智能航测与三维结构分析系统，由无人机航测采集装备 + 边坡三维智能分析软件成套组成，面向露天矿边坡、排土场、高陡岩质边坡、多级台阶等大范围岩体结构面智能识别场景。依托专业航测无人机快速采集多视角高清影像，融合摄影测量、实景三维建模与 AI 结构面智能识别算法，全自动完成边坡全尺度三维实景重建，精准提取边坡裂隙、节理构造、断层迹线、台阶边界及潜在失稳块体，输出完整全边坡三维结构模型与专业化数字化分析成果。整套系统可替代传统边坡人工现场编录模式，有效解决人工调查覆盖范围受限、高危陡坡区域无法抵近作业、高陡岩壁难以近距离观测、跨台阶结构面无法连续追踪、巡检成果无法动态更新等行业痛点。针对中小型矿山边坡，无人机野外影像采集仅需十几分钟至数十分钟即可完成；边坡全尺度三维重建与结构面智能解译识别，可在数十分钟至小时级全自动办结。针对重点边坡区段，支持周期性航测复测，实现边坡结构形态快速更新、形变演化与隐患变化持续跟踪。配套软件可自动输出边坡三维点云、网格模型、全尺度三维边坡实景模型、结构面产状参数、迹线空间分布、节理组智能分类、赤平投影图、节理玫瑰图、跨台阶结构面融合成果及潜在失稳风险区划图；数据成果可无缝对接边坡稳定性计算、爆破方案优化及在线监测预警平台实现联动应用。系统核心价值是以低成本模式实现作业更安全、覆盖范围更广、结构追踪更连续、成果可动态更新的边坡结构精细化调查与全尺度三维建模，为边坡稳定性评价、滑坡隐患精准识别、台阶形态优化、爆破影响定量评估、常态化安全巡检及矿山整体风险管控，提供专业、实时、可落地的数字化技术支撑。</p></div>
+        <div class="mod reveal" id="m5"><div class="mod-lbl">模块 05</div><h2 class="mod-t">岩石颗粒智能粒径<br>识别服务</h2><img src="img/application/岩石颗粒智能粒径识别服务.png" alt="岩石颗粒智能粒径识别服务" class="mod-img"><p class="mod-p">岩石颗粒粒径智能识别服务面向矿山爆破块度评估、矿石堆粒度分级、皮带输送粒径在线监测及破碎筛分工艺优化等业务场景，依托普通工业相机、高清摄像设备、无人机航拍及现场固定监控终端多渠道采集岩石颗粒影像数据；融合法线贴图（Normal Map）加持的多模态实例分割算法，自动精准勾勒岩块轮廓边界、粘连颗粒智能分离，批量计算岩体颗粒粒径分布特征。技术路径引入法向量图谱表征岩块表面几何形态变化，强化颗粒边缘轮廓、阴影粘连区域、低对比度岩块边界的辨识能力，有效克服现场光照不均、阴影干扰、岩块堆叠粘连等复杂工况影响，实现矿山真实场景下高鲁棒性、高精度的稳定块度分析。本服务可彻底解决传统人工筛分、人工图像判读耗时耗力、抽样代表性差、光照阴影干扰大、相邻岩块难以精准分割、不同作业场景需反复调参适配等行业痛点。实测研究表明，实验室训练模型具备强泛化迁移能力，可无需重新训练直接部署应用于矿山现场；粒径分布检测结果与人工真值标注偏差控制在 10% 以内。模型推理可达秒级单图处理，单张影像快速完成颗粒分割与尺寸解算，批量影像、无人机航拍影像、输送带连续抓拍影像均可在分钟级输出完整块度统计成果，支持现场快速部署、实时分析、即时反馈。配套软件可自动输出颗粒分割标注图、单颗粒等效粒径、长短轴几何尺寸、D10/D50/D80/D90 特征粒径、平均粒径、最大粒径、超径占比、细粒含量及粒径分布特征曲线；成果数据可无缝对接爆破参数设计、破碎站入料智能管控、筛分系统优化及矿山生产调度平台联动应用。核心价值是以低成本方式实现检测更高效、识别更稳定、跨场景免调参、数据可实时更新的岩石粒径智能识别与爆破块度定量分析，为矿山爆破参数优化、破碎筛分效率评价、矿石运输调度管控及矿山生产全流程质量控制，提供专业化、数字化、实时化技术支撑依据。</p></div>
+        <div class="mod reveal" id="m6"><div class="mod-lbl">模块 06</div><h2 class="mod-t">小尺度岩体 CT<br>扫描服务</h2><img src="img/application/小尺度岩体Ct扫描服务.png" alt="小尺度岩体 CT 扫描服务" class="mod-img"><p class="mod-p">小尺度岩体 CT 精细扫描与细观结构智能解析模块，面向岩心局部试样、标准岩石试件及细观尺度下矿物 - 孔隙 - 裂隙全要素识别场景。依托工业 CT、微米级 CT 及高分辨率 CT 设备，精准获取岩石内部高清三维断层影像；融合 Hessian 引导形态感知深度学习算法，自动完成矿物颗粒、原生孔隙、微裂隙、矿物边界及内部损伤演化特征的智能分割与精准提取。本模块重点弥补宏观测绘、岩心智能编录、钻孔视频检测等手段无法窥探岩石内部细观构造的短板，构建从露天矿边坡、井下工作面宏观尺度，到岩心 / 钻孔中尺度，再到 CT 细观尺度的多尺度递进式岩体结构完整表征体系。可有效解决传统 CT 影像人工标注耗时费力、矿物边缘辨识难度大、低对比度矿物难以精准分割、微细矿物与微裂隙易漏检、三维重建成果一致性差等行业痛点。系统依托 Hessian 矩阵提取二阶几何结构特征，强化矿物边界轮廓、颗粒形态特征及孔裂隙空间连通性的识别能力；相关试验验证表明，该算法可显著提升 CT 矿物分割的 IoU、Dice、召回率及空间连通性指标，同时可由二维切片逐层解译、堆叠重构，生成全域三维矿物分布模型。针对标准 CT 扫描数据，单张切片可实现秒级智能分割，批量切片数据集可在分钟级至小时级全自动完成矿物分类、孔裂隙参数统计及三维模型重建分析。配套软件可自动输出 CT 全景三维重建模型、多类别矿物分割成果、岩体孔隙率、裂隙体积分数、矿物体积分布规律、裂隙长度 / 开度 / 产状取向、裂隙空间连通性及细观损伤变量、精细结构模型等成果数据，可直接支撑渗流机理分析、孔隙网络建模、岩石力学参数反演及多场耦合数值模拟研究。其核心价值是以低成本实现岩体内部细观结构高精度、可量化、可追溯的智能识别与数字化表征，与无人机边坡航测、多目工作面识别、随钻孔壁成像、数字岩心编录系统形成完整多尺度数据闭环，为数字岩心精细建模、岩石破裂机理研究、岩体力学参数反演及矿山工程精细化设计，提供不可或缺的细观尺度数字化基础依据。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cs">
+  <div class="si">
+    <div class="sl reveal"><div class="sl-line"></div><span class="sl-txt">我们的客户</span><span class="sl-num">02</span></div>
+    <h2 class="csh reveal d1">深受全球行业<br>领军企业信赖</h2>
+    <div class="cg">
+      <div class="cc reveal"><img src="img/logos/anglo-american-logo.svg" alt="Anglo American"></div>
+      <div class="cc reveal d1"><img src="img/logos/glencore-logo.svg" alt="Glencore"></div>
+      <div class="cc reveal d2"><img src="img/logos/south32-logo.png" alt="South32"></div>
+      <div class="cc reveal"><img src="img/logos/banpu-energy-logo.avif" alt="Banpu Energy Australia"></div>
+      <div class="cc reveal d1"><img src="img/logos/shandong-energy-group-logo.jpg" alt="Shandong Energy Group"></div>
+      <div class="cc reveal d2"><img src="img/logos/evolution-mining-logo.png" alt="Evolution Mining"></div>
+      <div class="cc reveal"><img src="img/logos/ccteg-logo.jpg" alt="CCTEG"></div>
+      <div class="cc reveal d1"><img src="img/logos/petro-china-logo.svg" alt="PetroChina"></div>
+      <div class="cc reveal d2"><img src="img/logos/sinopec-logo.png" alt="Sinopec"></div>
+      <div class="cc reveal"><img src="img/logos/sdymhb-logo.png" alt="SDYMHB"></div>
+    </div>
+  </div>
+</section>
+<footer><div class="fi">
+  <a href="index.html" class="fl"><div class="flm"><img src="img/seerock-logo.png" alt="SeeRock logo"></div><span class="flt">SeeRock</span></a>
+  <ul class="flinks"><li><a href="technology.html">技术</a></li><li><a href="applications.html">应用</a></li><li><a href="publications.html">论文成果</a></li><li><a href="about.html">关于我们</a></li><li><a href="contact.html">联系我们</a></li></ul>
+  <p class="fc">版权所有 © 2026 SeeRock Pty Ltd</p>
+</div></footer>
+<script>
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let rx=0,ry=0;
+document.addEventListener('mousemove',e=>{cur.style.left=(e.clientX-4)+'px';cur.style.top=(e.clientY-4)+'px';rx+=(e.clientX-18-rx)*0.12;ry+=(e.clientY-18-ry)*0.12;});
+(function l(){ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.transform='scale(2.5)';ring.style.width='56px';ring.style.height='56px';});el.addEventListener('mouseleave',()=>{cur.style.transform='scale(1)';ring.style.width='36px';ring.style.height='36px';});});
+const obs=new IntersectionObserver(e=>e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=window.scrollY>60?'rgba(10,13,15,0.97)':'rgba(10,13,15,0.92)';});
+</script>
+</body></html>

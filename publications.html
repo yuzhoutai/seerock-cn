@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>论文成果 - SeeRock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0d0f;--bg2:#111518;--surface:#1a2228;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);--accent:#c8a96e;--accent2:#dfc28d;--text:#e8e2d9;--text2:#9da8b0;--text3:#5e6e78;--ffd:'Bebas Neue',sans-serif;--ffs:'Instrument Serif',serif;--ffb:'DM Sans',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--ffb);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.025;pointer-events:none;z-index:9999;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;background:rgba(10,13,15,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.3s;}
+.nlg{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nlgm{width:51px;height:51px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}.nlgm img{display:block;width:100%;height:100%;object-fit:contain;}
+.nlgt{font-family:var(--ffd);font-size:22px;letter-spacing:0.08em;color:var(--text);}
+.nls{display:flex;align-items:center;list-style:none;}
+.nls a{display:block;padding:0 1.1rem;color:var(--text2);text-decoration:none;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;position:relative;}
+.nls a::after{content:'';position:absolute;bottom:-4px;left:1.1rem;right:1.1rem;height:1px;background:var(--accent);transform:scaleX(0);transition:transform 0.25s;transform-origin:left;}
+.nls a:hover,.nls a.act{color:var(--text);}
+.nls a:hover::after,.nls a.act::after{transform:scaleX(1);}
+.nc{padding:9px 20px!important;border:1px solid var(--accent);border-radius:4px;color:var(--accent)!important;}
+.nc:hover{background:var(--accent)!important;color:var(--bg)!important;}
+.nc::after{display:none!important;}
+.si{max-width:1280px;margin:0 auto;padding:0 4rem;}
+.sl{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;}
+.sl-line{width:30px;height:1px;background:var(--accent);}
+.sl-txt{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);}
+.sl-num{font-family:var(--ffd);font-size:11px;letter-spacing:0.15em;color:var(--text3);margin-left:auto;}
+.ph{padding:160px 4rem 80px;max-width:1280px;margin:0 auto;}
+.ph-ey{display:flex;align-items:center;gap:12px;margin-bottom:2rem;}
+.ph-ey-line{width:40px;height:1px;background:var(--accent);}
+.ph-ey-txt{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);}
+h1.pht{font-family:var(--ffd);font-size:clamp(56px,7vw,100px);line-height:0.92;letter-spacing:0.02em;color:var(--text);margin-bottom:2rem;}
+h1.pht em{font-style:normal;color:var(--accent);}
+.phs{font-family:var(--ffs);font-style:italic;font-size:20px;color:var(--text2);line-height:1.65;max-width:600px;}
+.papers-section{padding:80px 0 120px;background:var(--bg2);border-top:1px solid var(--border);}
+.papers-list{display:flex;flex-direction:column;gap:0;}
+.paper{display:grid;grid-template-columns:360px 1fr;gap:0;border-bottom:1px solid var(--border);transition:background 0.3s;overflow:hidden;}
+.paper:first-child{border-top:1px solid var(--border);}
+.paper:hover{background:var(--surface);}
+.paper-img-wrap{position:relative;overflow:hidden;}
+.paper-img{width:100%;height:100%;min-height:260px;object-fit:cover;filter:brightness(0.5) saturate(0.5);transition:filter 0.5s,transform 0.5s;}
+.paper:hover .paper-img{filter:brightness(0.65) saturate(0.65);transform:scale(1.02);}
+.paper-img-num{position:absolute;top:24px;left:24px;font-family:var(--ffd);font-size:64px;color:rgba(200,169,110,0.2);line-height:1;letter-spacing:0.05em;}
+.paper-body{padding:48px 52px;display:flex;flex-direction:column;justify-content:space-between;}
+.paper-tag{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
+h2.paper-title{font-family:var(--ffd);font-size:clamp(22px,2.2vw,34px);line-height:1.05;letter-spacing:0.02em;color:var(--text);margin-bottom:0.75rem;}
+.paper-journal{font-family:var(--ffs);font-style:italic;font-size:14px;color:var(--text3);margin-bottom:1.5rem;}
+.paper-abstract{font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:2rem;}
+.paper-abstract.collapsed{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+.paper-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:auto;}
+.btn-rm{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);background:none;border:none;cursor:pointer;font-family:var(--ffb);padding:0;transition:color 0.2s;}
+.btn-rm:hover{color:var(--accent2);}
+.btn-rm svg{transition:transform 0.2s;}
+.btn-rm.open svg{transform:rotate(180deg);}
+.btn-dl{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid var(--border2);border-radius:4px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text2);text-decoration:none;transition:border-color 0.2s,color 0.2s,background 0.2s;}
+.btn-dl:hover{border-color:var(--accent);color:var(--accent);}
+.btn-pdf{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--accent);color:var(--bg);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:4px;font-weight:500;transition:background 0.2s;}
+.btn-pdf:hover{background:var(--accent2);}
+footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 0 40px;}
+.fi{max-width:1280px;margin:0 auto;padding:0 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.fl{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.flm{width:42px;height:42px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}.flm img{display:block;width:100%;height:100%;object-fit:contain;}
+.flt{font-family:var(--ffd);font-size:18px;letter-spacing:0.08em;color:var(--text2);}
+.flinks{display:flex;gap:2rem;list-style:none;flex-wrap:wrap;}
+.flinks a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);text-decoration:none;transition:color 0.2s;}
+.flinks a:hover{color:var(--text2);}
+.fc{font-size:12px;color:var(--text3);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.d1{transition-delay:0.1s;}.d2{transition-delay:0.22s;}
+.cursor{position:fixed;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transition:transform 0.15s;}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(200,169,110,0.4);border-radius:50%;pointer-events:none;z-index:9997;transition:width 0.3s,height 0.3s;}
+@media(max-width:900px){nav{padding:0 1.5rem;}.ph,.si,.fi{padding-left:1.5rem;padding-right:1.5rem;}.paper{grid-template-columns:1fr;}.paper-img{min-height:200px;}.paper-body{padding:32px 28px;}.fi{flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div><div class="cursor-ring" id="cursor-ring"></div>
+<nav id="nav">
+  <a href="index.html" class="nlg"><div class="nlgm"><img src="img/seerock-logo.png" alt="SeeRock logo"></div><span class="nlgt">SeeRock</span></a>
+  <ul class="nls"><li><a href="index.html">首页</a></li><li><a href="technology.html">技术</a></li><li><a href="applications.html">应用</a></li><li><a href="publications.html" class="act">论文成果</a></li><li><a href="about.html">关于我们</a></li><li><a href="contact.html" class="nc">联系我们</a></li></ul>
+</nav>
+<div class="ph">
+  <div class="ph-ey reveal"><div class="ph-ey-line"></div><span class="ph-ey-txt">研究成果</span></div>
+  <h1 class="pht reveal d1">SELECTED<br><em>PUBLICATIONS</em></h1>
+  <p class="phs reveal d2">这里汇集了团队的代表性论文与研究产出。每一篇成果，都是 AI 驱动岩土工程智能向前迈出的重要一步。</p>
+</div>
+<section class="papers-section">
+  <div class="si">
+    <div class="sl reveal"><div class="sl-line"></div><span class="sl-txt">研究论文</span><span class="sl-num">04</span></div>
+    <div class="papers-list">
+      <div class="paper reveal">
+        <div class="paper-img-wrap">
+          <img src="img/publics/Paper1.jpg" alt="论文 1" class="paper-img">
+          <div class="paper-img-num">01</div>
+        </div>
+        <div class="paper-body">
+          <div>
+            <div class="paper-tag">研究论文 · RMRE</div>
+            <h2 class="paper-title">基于深度图像分割的平滑岩石表面裂隙提取</h2>
+            <div class="paper-journal">Rock Mechanics and Rock Engineering (RMRE)</div>
+            <p class="paper-abstract collapsed" id="abs1">由于岩石中矿物颗粒在尺寸、形状、排列方式和结构连接上的差异，实验室尺度下岩石样本表面的彩色图像通常十分复杂，采用传统图像处理算法时容易出现误判与信息损失。为提升裂隙提取精度，本文提出了一种基于图像处理的方法，从三维点云中提取裂隙。研究首先通过 Kriging 插值对岩石表面点云进行网格化，生成高精度原始深度图像；随后利用 hill shading 方法进一步强化裂隙表达；最后从深度图像中提取裂隙并与彩色图像进行对比。结果表明，该方法显著提升了裂隙骨架的完整性并降低了误差率；结合彩色图像后，还可有效区分真实物理裂隙与其他类似裂隙的表面特征。</p>
+          </div>
+          <div class="paper-actions">
+            <button class="btn-rm" onclick="toggleAbs('abs1',this)">阅读全文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a href="https://seerock.com.au/publics/Paper1.pdf" target="_blank" class="btn-pdf">打开 PDF</a>
+            <a href="https://seerock.com.au/publics/Paper1.pdf" download class="btn-dl">下载</a>
+          </div>
+        </div>
+      </div>
+      <div class="paper reveal">
+        <div class="paper-img-wrap">
+          <img src="img/publics/Paper2.jpg" alt="论文 2" class="paper-img">
+          <div class="paper-img-num">02</div>
+        </div>
+        <div class="paper-body">
+          <div>
+            <div class="paper-tag">研究论文 · Advanced Engineering Informatics</div>
+            <h2 class="paper-title">从实验室到现场：法线图辅助的多模态爆破块度实例分割</h2>
+            <div class="paper-journal">Advanced Engineering Informatics</div>
+            <p class="paper-abstract collapsed" id="abs2">岩石碎块粒度分析在采矿工程中具有关键意义。然而，传统非接触式图像分析方法通常仅依赖 RGB 图像，极易受到光照变化、阴影干扰和碎块纹理差异的影响，导致模型精度与泛化能力受限，并常常需要在不同场景中重新训练。针对这些问题，本文引入法线图，并系统分析其在表达岩石碎块特征方面的优势。同时，我们提出了一种名为 Adaptive Feature Recombination Network（AFRNet）的多模态实例分割框架。AFRNet 通过模态有效性感知机制自适应地引导特征融合，并抑制不可靠模态带来的干扰。实验结果表明，引入法线图后，模型在低照度和阴影干扰等退化环境中的分割精度与鲁棒性均得到显著提升；最终得到的粒度分布曲线与人工标注结果偏差小于 10%，验证了该方法具备零额外迁移成本与良好的工程适用性。</p>
+          </div>
+          <div class="paper-actions">
+            <button class="btn-rm" onclick="toggleAbs('abs2',this)">阅读全文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a href="https://seerock.com.au/publics/Paper2.pdf" target="_blank" class="btn-pdf">打开 PDF</a>
+            <a href="https://seerock.com.au/publics/Paper2.pdf" download class="btn-dl">下载</a>
+          </div>
+        </div>
+      </div>
+      <div class="paper reveal">
+        <div class="paper-img-wrap">
+          <img src="img/publics/Paper4.jpg" alt="论文 3" class="paper-img">
+          <div class="paper-img-num">03</div>
+        </div>
+        <div class="paper-body">
+          <div>
+            <div class="paper-tag">研究论文 · International Journal of Coal Geology</div>
+            <h2 class="paper-title">基于钻孔地球物理测井的澳大利亚煤矿原位岩石强度估算</h2>
+            <div class="paper-journal">International Journal of Coal Geology (269, 2023)</div>
+            <p class="paper-abstract collapsed" id="abs3">本研究针对澳大利亚煤矿中常用的经验型岩石强度估算方法进行改进，构建了人工神经网络（ANN）模型，以钻孔地球物理测井数据预测单轴抗压强度（UCS）。研究将 274 组实验室 UCS 测试结果与声波、伽马、中子、孔隙度及密度测井数据进行配对，并据此训练了一个采用 Levenberg-Marquardt 学习算法的双隐层 ANN 模型。与传统的声波-UCS 拟合公式相比，ANN 显著降低了预测误差。进一步构建的按岩性和矿区区分的模型还带来了额外的精度提升，说明岩性差异与局部地质条件对 UCS 估算及后续岩土工程分析具有重要影响。</p>
+          </div>
+          <div class="paper-actions">
+            <button class="btn-rm" onclick="toggleAbs('abs3',this)">阅读全文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a href="https://seerock.com.au/publics/paper4.pdf" target="_blank" class="btn-pdf">打开 PDF</a>
+            <a href="https://seerock.com.au/publics/paper4.pdf" download class="btn-dl">下载</a>
+          </div>
+        </div>
+      </div>
+      <div class="paper reveal">
+        <div class="paper-img-wrap">
+          <img src="img/publics/Paper3.jpg" alt="论文 4" class="paper-img">
+          <div class="paper-img-num">04</div>
+        </div>
+        <div class="paper-body">
+          <div>
+            <div class="paper-tag">研究论文 · Geophysical Journal International</div>
+            <h2 class="paper-title">基于多尺度井壁崩落数据的原位水平应力机器学习估算</h2>
+            <div class="paper-journal">Geophysical Journal International</div>
+            <p class="paper-abstract collapsed" id="abs4">由于地下活动对地应力场高度敏感，而传统应力测试方法又存在一定局限，井壁崩落（BO）近年来越来越多地被用于估算原位应力大小。本文开发了一种新的反向传播神经网络模型，用于根据多尺度井壁崩落数据同时估算最大与最小水平主应力。研究收集了 150 组来自预应力真三轴实验室试验的数据，以及 44 组来自澳大利亚矿区和文献资料的现场数据，用于模型开发与验证。结果显示，该模型对最大水平主应力的平均绝对百分比误差低于 8%，对最小水平主应力的误差低于 20%，显著优于此前同类方法。研究表明，利用可从钻孔地球物理测井中便捷获取的输入参数，该模型能够提供可靠且准确的应力估算结果。</p>
+          </div>
+          <div class="paper-actions">
+            <button class="btn-rm" onclick="toggleAbs('abs4',this)">阅读全文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a href="https://seerock.com.au/publics/Paper3.pdf" target="_blank" class="btn-pdf">打开 PDF</a>
+            <a href="https://seerock.com.au/publics/Paper3.pdf" download class="btn-dl">下载</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer><div class="fi">
+  <a href="index.html" class="fl"><div class="flm"><img src="img/seerock-logo.png" alt="SeeRock logo"></div><span class="flt">SeeRock</span></a>
+  <ul class="flinks"><li><a href="technology.html">技术</a></li><li><a href="applications.html">应用</a></li><li><a href="publications.html">论文成果</a></li><li><a href="about.html">关于我们</a></li><li><a href="contact.html">联系我们</a></li></ul>
+  <p class="fc">版权所有 © 2026 SeeRock Pty Ltd</p>
+</div></footer>
+<script>
+function toggleAbs(id,btn){
+  const el=document.getElementById(id);
+  const open=el.classList.toggle('collapsed');
+  btn.classList.toggle('open',!open);
+  btn.childNodes[0].textContent=open?'阅读全文 ':'收起 ';
+}
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let rx=0,ry=0;
+document.addEventListener('mousemove',e=>{cur.style.left=(e.clientX-4)+'px';cur.style.top=(e.clientY-4)+'px';rx+=(e.clientX-18-rx)*0.12;ry+=(e.clientY-18-ry)*0.12;});
+(function l(){ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.transform='scale(2.5)';ring.style.width='56px';ring.style.height='56px';});el.addEventListener('mouseleave',()=>{cur.style.transform='scale(1)';ring.style.width='36px';ring.style.height='36px';});});
+const obs=new IntersectionObserver(e=>e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=window.scrollY>60?'rgba(10,13,15,0.97)':'rgba(10,13,15,0.92)';});
+</script>
+</body></html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技术 - SeeRock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0d0f;--bg2:#111518;--surface:#1a2228;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);--accent:#c8a96e;--accent2:#dfc28d;--text:#e8e2d9;--text2:#9da8b0;--text3:#5e6e78;--ffd:'Bebas Neue',sans-serif;--ffs:'Instrument Serif',serif;--ffb:'DM Sans',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--ffb);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.025;pointer-events:none;z-index:9999;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;background:rgba(10,13,15,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.3s;}
+.nlg{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nlgm{width:51px;height:51px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}.nlgm img{display:block;width:100%;height:100%;object-fit:contain;}
+.nlgt{font-family:var(--ffd);font-size:22px;letter-spacing:0.08em;color:var(--text);}
+.nls{display:flex;align-items:center;list-style:none;}
+.nls a{display:block;padding:0 1.1rem;color:var(--text2);text-decoration:none;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;position:relative;}
+.nls a::after{content:'';position:absolute;bottom:-4px;left:1.1rem;right:1.1rem;height:1px;background:var(--accent);transform:scaleX(0);transition:transform 0.25s;transform-origin:left;}
+.nls a:hover,.nls a.act{color:var(--text);}
+.nls a:hover::after,.nls a.act::after{transform:scaleX(1);}
+.nc{padding:9px 20px!important;border:1px solid var(--accent);border-radius:4px;color:var(--accent)!important;}
+.nc:hover{background:var(--accent)!important;color:var(--bg)!important;}
+.nc::after{display:none!important;}
+.si{max-width:1280px;margin:0 auto;padding:0 4rem;}
+.sl{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem;}
+.sl-line{width:30px;height:1px;background:var(--accent);}
+.sl-txt{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);}
+.sl-num{font-family:var(--ffd);font-size:11px;letter-spacing:0.15em;color:var(--text3);margin-left:auto;}
+.ph{padding:160px 4rem 80px;max-width:1280px;margin:0 auto;}
+.ph-ey{display:flex;align-items:center;gap:12px;margin-bottom:2rem;}
+.ph-ey-line{width:40px;height:1px;background:var(--accent);}
+.ph-ey-txt{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);}
+h1.pht{font-family:var(--ffd);font-size:clamp(56px,7vw,100px);line-height:0.92;letter-spacing:0.02em;color:var(--text);margin-bottom:2rem;}
+h1.pht em{font-style:normal;color:var(--accent);}
+.phs{font-family:var(--ffs);font-style:italic;font-size:20px;color:var(--text2);line-height:1.65;max-width:680px;}
+.hs{width:100%;height:480px;position:relative;overflow:hidden;}
+.hs img{width:100%;height:100%;object-fit:cover;filter:brightness(0.45) saturate(0.5);}
+.hs-ov{position:absolute;inset:0;background:linear-gradient(to bottom,var(--bg) 0%,transparent 20%,transparent 80%,var(--bg2) 100%);}
+.core{padding:100px 0;background:var(--bg2);border-top:1px solid var(--border);}
+.ch{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:80px;}
+h2.chh{font-family:var(--ffd);font-size:clamp(40px,4vw,64px);line-height:0.95;letter-spacing:0.03em;color:var(--text);}
+.ci{font-size:15px;color:var(--text2);line-height:1.85;}
+.tg{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);}
+.ti{background:var(--bg2);padding:44px 40px;position:relative;overflow:hidden;transition:background 0.3s;}
+.ti::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
+.ti:hover{background:var(--surface);}
+.ti:hover::before{transform:scaleX(1);}
+.ti-n{font-family:var(--ffd);font-size:13px;letter-spacing:0.2em;color:var(--accent);margin-bottom:1.25rem;display:block;}
+h3.ti-t{font-family:var(--ffs);font-size:20px;color:var(--text);margin-bottom:0.85rem;line-height:1.35;}
+.ti-p{font-size:14px;color:var(--text2);line-height:1.8;}
+.ps{padding:80px 0;background:var(--bg);border-top:1px solid var(--border);}
+h2.psh{font-family:var(--ffd);font-size:clamp(36px,3.5vw,52px);line-height:1;letter-spacing:0.03em;color:var(--text);margin-bottom:56px;}
+.pg{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.pc{background:var(--bg);display:flex;align-items:center;justify-content:center;padding:36px 28px;filter:grayscale(1) brightness(0.55);transition:filter 0.3s,background 0.3s;}
+.pc:hover{background:var(--surface);filter:grayscale(0) brightness(1);}
+.pc img{max-height:40px;max-width:110px;object-fit:contain;}
+.ctab{padding:100px 0;background:var(--bg2);border-top:1px solid var(--border);}
+.ctab-in{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;}
+h2.ctab-h{font-family:var(--ffd);font-size:clamp(36px,4vw,56px);line-height:0.95;letter-spacing:0.03em;color:var(--text);margin-bottom:1rem;}
+.ctab-s{font-size:15px;color:var(--text2);line-height:1.8;}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:var(--accent);color:var(--bg);font-size:13px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border-radius:4px;transition:background 0.2s,transform 0.2s;white-space:nowrap;}
+.btn:hover{background:var(--accent2);transform:translateY(-1px);}
+footer{background:var(--bg);border-top:1px solid var(--border);padding:60px 0 40px;}
+.fi{max-width:1280px;margin:0 auto;padding:0 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.fl{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.flm{width:42px;height:42px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}.flm img{display:block;width:100%;height:100%;object-fit:contain;}
+.flt{font-family:var(--ffd);font-size:18px;letter-spacing:0.08em;color:var(--text2);}
+.flinks{display:flex;gap:2rem;list-style:none;flex-wrap:wrap;}
+.flinks a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);text-decoration:none;transition:color 0.2s;}
+.flinks a:hover{color:var(--text2);}
+.fc{font-size:12px;color:var(--text3);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.d1{transition-delay:0.1s;}.d2{transition-delay:0.22s;}.d3{transition-delay:0.36s;}
+.cursor{position:fixed;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transition:transform 0.15s;}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(200,169,110,0.4);border-radius:50%;pointer-events:none;z-index:9997;transition:width 0.3s,height 0.3s;}
+@media(max-width:900px){nav{padding:0 1.5rem;}.ph,.si,.fi{padding-left:1.5rem;padding-right:1.5rem;}.ch,.tg{grid-template-columns:1fr;}.pg{grid-template-columns:repeat(3,1fr);}.ctab-in{grid-template-columns:1fr;}.fi{flex-direction:column;align-items:flex-start;}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div><div class="cursor-ring" id="cursor-ring"></div>
+<nav id="nav">
+  <a href="index.html" class="nlg"><div class="nlgm"><img src="img/seerock-logo.png" alt="SeeRock logo"></div><span class="nlgt">SeeRock</span></a>
+  <ul class="nls"><li><a href="index.html">首页</a></li><li><a href="technology.html" class="act">技术</a></li><li><a href="applications.html">应用</a></li><li><a href="publications.html">论文成果</a></li><li><a href="about.html">关于我们</a></li><li><a href="contact.html" class="nc">联系我们</a></li></ul>
+</nav>
+<div class="ph">
+  <div class="ph-ey reveal"><div class="ph-ey-line"></div><span class="ph-ey-txt">我们的技术</span></div>
+  <h1 class="pht reveal d1">TRANSFORMING<br>GEOTECHNICAL<br><em>INTELLIGENCE</em></h1>
+  <p class="phs reveal d2">AI 驱动的视觉技术，从实验室到现场环境中的图像数据中提取可靠、高分辨率的岩土工程智能。</p>
+</div>
+<div class="hs reveal"><img src="img/new8.png" alt="AI 驱动的岩土视觉技术"><div class="hs-ov"></div></div>
+<section class="core">
+  <div class="si">
+    <div class="ch">
+      <div><div class="sl reveal"><div class="sl-line"></div><span class="sl-txt">核心技术</span><span class="sl-num">01</span></div><h2 class="chh reveal d1">岩体智能的<br>八大技术<br>支柱</h2></div>
+      <p class="ci reveal">提取后的信息会被组织为结构化、可直接建模的数据表达，支撑岩体表征、数值建模与开挖设计，贯通从感知到工程输出的完整链路。</p>
+    </div>
+    <div class="tg">
+      <div class="ti reveal"><span class="ti-n">01</span><h3 class="ti-t">基于视觉的岩体结构感知</h3><p class="ti-p">AI 视觉技术可从岩芯、裸露面与开挖工作面中提取节理、裂隙与不连续面信息，为后续建模提供客观、可重复的结构表征。</p></div>
+      <div class="ti reveal d1"><span class="ti-n">02</span><h3 class="ti-t">岩石矿物与材料组成表征</h3><p class="ti-p">基于 CT 与高分辨率图像进行材料层级解译，定量分析不同尺度下的矿物、相组成及其非均质性。</p></div>
+      <div class="ti reveal"><span class="ti-n">03</span><h3 class="ti-t">岩块与块体识别及块度分布分析</h3><p class="ti-p">通过场景理解从图像与点云中分割块体与碎块，量化其形态与稳健的粒度分布，用于表征破碎特征。</p></div>
+      <div class="ti reveal d1"><span class="ti-n">04</span><h3 class="ti-t">岩石力学性质表征</h3><p class="ti-p">结合表面纹理分析、划痕测试与数据驱动推断，对强度与刚度相关参数进行具备空间分辨率的估算。</p></div>
+      <div class="ti reveal"><span class="ti-n">05</span><h3 class="ti-t">多源 DFN 构建与地下结构建模</h3><p class="ti-p">融合钻孔、岩芯观测与重复工作面测绘结果，构建具备不确定性感知能力的离散裂隙网络，用于地下结构预测。</p></div>
+      <div class="ti reveal d1"><span class="ti-n">06</span><h3 class="ti-t">空间嵌入与高精度三维结构建模</h3><p class="ti-p">将提取特征注册到统一的三维工程空间中，生成适用于数字孪生流程的高精度结构模型。</p></div>
+      <div class="ti reveal"><span class="ti-n">07</span><h3 class="ti-t">工程尺度块体建模与岩体分类</h3><p class="ti-p">整合结构信息、力学参数与块体统计结果，生成工程尺度块体模型并实现自动化岩体分类。</p></div>
+      <div class="ti reveal d1"><span class="ti-n">08</span><h3 class="ti-t">AI 加速的数值建模与模拟</h3><p class="ti-p">通过代理模型、参数校准与快速场景评估，加速连续体与非连续体框架下的物理建模过程。</p></div>
+    </div>
+  </div>
+</section>
+<section class="ps">
+  <div class="si">
+    <div class="sl reveal"><div class="sl-line"></div><span class="sl-txt">资助与合作伙伴</span><span class="sl-num">02</span></div>
+    <h2 class="psh reveal d1">获得世界级<br>机构支持</h2>
+    <div class="pg">
+      <div class="pc reveal"><img src="img/logos/AEAlogo.png" alt="AEA"></div>
+      <div class="pc reveal d1"><img src="img/logos/fundinglogo.png" alt="Funding"></div>
+      <div class="pc reveal d2"><img src="img/logos/unsw-logo.png" alt="UNSW"></div>
+      <div class="pc reveal"><img src="img/logos/evolution-mining-logo.png" alt="Evolution Mining"></div>
+      <div class="pc reveal d1"><img src="img/logos/azure.jpg" alt="Azure"></div>
+    </div>
+  </div>
+</section>
+<section class="ctab">
+  <div class="si">
+    <div class="ctab-in reveal">
+      <div><h2 class="ctab-h">我们是谁</h2><p class="ctab-s">SeeRock 由一支深刻理解传统采矿作业挑战的学术专家团队创立。我们的目标是以更具性价比的方式，提升采矿效率与安全性。</p></div>
+      <a href="contact.html" class="btn">欢迎联系 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+<footer><div class="fi">
+  <a href="index.html" class="fl"><div class="flm"><img src="img/seerock-logo.png" alt="SeeRock logo"></div><span class="flt">SeeRock</span></a>
+  <ul class="flinks"><li><a href="technology.html">技术</a></li><li><a href="applications.html">应用</a></li><li><a href="publications.html">论文成果</a></li><li><a href="about.html">关于我们</a></li><li><a href="contact.html">联系我们</a></li></ul>
+  <p class="fc">版权所有 © 2026 SeeRock Pty Ltd</p>
+</div></footer>
+<script>
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let rx=0,ry=0;
+document.addEventListener('mousemove',e=>{cur.style.left=(e.clientX-4)+'px';cur.style.top=(e.clientY-4)+'px';rx+=(e.clientX-18-rx)*0.12;ry+=(e.clientY-18-ry)*0.12;});
+(function l(){ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.transform='scale(2.5)';ring.style.width='56px';ring.style.height='56px';});el.addEventListener('mouseleave',()=>{cur.style.transform='scale(1)';ring.style.width='36px';ring.style.height='36px';});});
+const obs=new IntersectionObserver(e=>e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=window.scrollY>60?'rgba(10,13,15,0.97)':'rgba(10,13,15,0.92)';});
+</script>
+</body></html>

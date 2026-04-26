@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>联系我们 - SeeRock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0d0f;--bg2:#111518;--surface:#1a2228;--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);--accent:#c8a96e;--accent2:#dfc28d;--text:#e8e2d9;--text2:#9da8b0;--text3:#5e6e78;--ffd:'Bebas Neue',sans-serif;--ffs:'Instrument Serif',serif;--ffb:'DM Sans',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--ffb);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.025;pointer-events:none;z-index:9999;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:72px;background:rgba(10,13,15,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:background 0.3s;}
+.nlg{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nlgm{width:51px;height:51px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}.nlgm img{display:block;width:100%;height:100%;object-fit:contain;}
+.nlgt{font-family:var(--ffd);font-size:22px;letter-spacing:0.08em;color:var(--text);}
+.nls{display:flex;align-items:center;list-style:none;}
+.nls a{display:block;padding:0 1.1rem;color:var(--text2);text-decoration:none;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;position:relative;}
+.nls a::after{content:'';position:absolute;bottom:-4px;left:1.1rem;right:1.1rem;height:1px;background:var(--accent);transform:scaleX(0);transition:transform 0.25s;transform-origin:left;}
+.nls a:hover,.nls a.act{color:var(--text);}
+.nls a:hover::after,.nls a.act::after{transform:scaleX(1);}
+.nc{padding:9px 20px!important;border:1px solid var(--accent);border-radius:4px;color:var(--accent)!important;background:rgba(200,169,110,0.08)!important;}
+.nc::after{display:none!important;}
+.contact-wrap{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;}
+.contact-left{padding:140px 5rem 80px 4rem;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border);background:var(--bg);}
+.contact-right{padding:140px 4rem 80px 5rem;background:var(--bg2);}
+.c-ey{display:flex;align-items:center;gap:12px;margin-bottom:2rem;}
+.c-ey-line{width:40px;height:1px;background:var(--accent);}
+.c-ey-txt{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);}
+h1.ct{font-family:var(--ffd);font-size:clamp(56px,6vw,96px);line-height:0.92;letter-spacing:0.02em;color:var(--text);margin-bottom:2rem;}
+h1.ct span{color:var(--accent);display:block;}
+.c-sub{font-family:var(--ffs);font-style:italic;font-size:19px;color:var(--text2);line-height:1.65;max-width:440px;margin-bottom:3rem;}
+.c-desc{font-size:15px;color:var(--text3);line-height:1.85;max-width:420px;margin-bottom:3rem;}
+.c-info{display:flex;flex-direction:column;gap:1.5rem;}
+.ci-row{display:flex;flex-direction:column;gap:4px;}
+.ci-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text3);}
+.ci-val{font-size:16px;color:var(--text2);}
+.ci-val a{color:var(--accent);text-decoration:none;transition:color 0.2s;}
+.ci-val a:hover{color:var(--accent2);}
+.form-title{font-family:var(--ffd);font-size:clamp(28px,3vw,44px);line-height:0.95;letter-spacing:0.03em;color:var(--text);margin-bottom:2.5rem;}
+.form{display:flex;flex-direction:column;gap:1.25rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
+.fg{display:flex;flex-direction:column;gap:6px;}
+.flbl{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text3);}
+.finp,.fta,.fsel{background:rgba(255,255,255,0.04);border:1px solid var(--border2);border-radius:2px;padding:13px 16px;color:var(--text);font-family:var(--ffb);font-size:14px;outline:none;transition:border-color 0.2s,background 0.2s;width:100%;}
+.finp::placeholder,.fta::placeholder{color:var(--text3);}
+.finp:focus,.fta:focus,.fsel:focus{border-color:var(--accent);background:rgba(200,169,110,0.04);}
+.fta{height:130px;resize:none;}
+.fsel{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235e6e78' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.fsel option{background:var(--bg2);}
+.fsub{display:inline-flex;align-items:center;gap:12px;padding:15px 36px;background:var(--accent);color:var(--bg);font-family:var(--ffb);font-size:12px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer;transition:background 0.2s,transform 0.2s;align-self:flex-start;margin-top:0.5rem;}
+.fsub:hover{background:var(--accent2);transform:translateY(-1px);}
+.success-msg{display:none;background:rgba(200,169,110,0.08);border:1px solid rgba(200,169,110,0.3);border-radius:4px;padding:20px 24px;margin-top:1rem;}
+.success-msg.show{display:block;}
+.success-msg p{font-size:14px;color:var(--accent);}
+.bottom-strip{background:var(--bg2);border-top:1px solid var(--border);padding:60px 0;}
+.bs-inner{max-width:1280px;margin:0 auto;padding:0 4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
+.bs-item{}
+.bs-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text3);margin-bottom:0.5rem;}
+.bs-val{font-family:var(--ffd);font-size:28px;letter-spacing:0.05em;color:var(--accent);line-height:1;margin-bottom:0.25rem;}
+.bs-desc{font-size:13px;color:var(--text3);}
+footer{background:var(--bg);border-top:1px solid var(--border);padding:50px 0 36px;}
+.fi{max-width:1280px;margin:0 auto;padding:0 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;}
+.fl{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.flm{width:42px;height:42px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}.flm img{display:block;width:100%;height:100%;object-fit:contain;}
+.flt{font-family:var(--ffd);font-size:18px;letter-spacing:0.08em;color:var(--text2);}
+.flinks{display:flex;gap:2rem;list-style:none;flex-wrap:wrap;}
+.flinks a{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);text-decoration:none;transition:color 0.2s;}
+.flinks a:hover{color:var(--text2);}
+.fc{font-size:12px;color:var(--text3);}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.d1{transition-delay:0.1s;}.d2{transition-delay:0.22s;}.d3{transition-delay:0.36s;}
+.cursor{position:fixed;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transition:transform 0.15s;}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1px solid rgba(200,169,110,0.4);border-radius:50%;pointer-events:none;z-index:9997;transition:width 0.3s,height 0.3s;}
+.contact-left>*{opacity:0;transform:translateY(20px);animation:fu 0.8s ease forwards;}
+.c-ey{animation-delay:0.05s;}.ct{animation-delay:0.2s;}.c-sub{animation-delay:0.35s;}.c-desc{animation-delay:0.5s;}.c-info{animation-delay:0.65s;}
+@keyframes fu{to{opacity:1;transform:none;}}
+@media(max-width:900px){nav{padding:0 1.5rem;}.contact-wrap{grid-template-columns:1fr;}.contact-left,.contact-right{padding:120px 1.5rem 60px;}.form-row{grid-template-columns:1fr;}.bs-inner{grid-template-columns:1fr;}.fi{flex-direction:column;align-items:flex-start;padding:0 1.5rem;}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div><div class="cursor-ring" id="cursor-ring"></div>
+<nav id="nav">
+  <a href="index.html" class="nlg"><div class="nlgm"><img src="img/seerock-logo.png" alt="SeeRock logo"></div><span class="nlgt">SeeRock</span></a>
+  <ul class="nls"><li><a href="index.html">首页</a></li><li><a href="technology.html">技术</a></li><li><a href="applications.html">应用</a></li><li><a href="publications.html">论文成果</a></li><li><a href="about.html">关于我们</a></li><li><a href="contact.html" class="act nc">联系我们</a></li></ul>
+</nav>
+<div class="contact-wrap">
+  <div class="contact-left">
+    <div class="c-ey"><div class="c-ey-line"></div><span class="c-ey-txt">欢迎联系</span></div>
+    <h1 class="ct">准备好<br>开启深入<br><span>对话了吗？</span></h1>
+    <p class="c-sub">我们的团队愿意与您交流 SeeRock 技术如何回应您的具体挑战与业务目标。</p>
+    <p class="c-desc">我们可根据您的组织需求提供定制化解决方案，包括产品演示、试点项目与实施指导，全程支持您的目标落地。</p>
+    <div class="c-info">
+      <div class="ci-row">
+        <div class="ci-label">邮箱</div>
+        <div class="ci-val"><a href="mailto:seerock_cn@outlook.com">seerock_cn@outlook.com</a></div>
+      </div>
+      <div class="ci-row">
+        <div class="ci-label">公司</div>
+        <div class="ci-val">徐州视岩矿业科技有限公司</div>
+      </div>
+      <div class="ci-row">
+        <div class="ci-label">地址</div>
+        <div class="ci-val">江苏省徐州市铜山区大学路 301 号产融云谷创新中心</div>
+      </div>
+      <div class="ci-row">
+        <div class="ci-label">电话</div>
+        <div class="ci-val"><a href="tel:15069178100">15069178100</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-right">
+    <h2 class="form-title reveal">开启这场<br>对话</h2>
+    <form class="form reveal d1" id="contactForm">
+      <div class="form-row">
+        <div class="fg"><label class="flbl">名字</label><input type="text" class="finp" placeholder="请输入名字" required></div>
+        <div class="fg"><label class="flbl">姓氏</label><input type="text" class="finp" placeholder="请输入姓氏" required></div>
+      </div>
+      <div class="fg"><label class="flbl">公司 / 机构</label><input type="text" class="finp" placeholder="请输入公司或机构名称"></div>
+      <div class="fg"><label class="flbl">电子邮箱</label><input type="email" class="finp" placeholder="请输入邮箱地址" required></div>
+      <div class="fg"><label class="flbl">电话（选填）</label><input type="tel" class="finp" placeholder="请输入联系电话"></div>
+      <div class="fg">
+        <label class="flbl">感兴趣的方向</label>
+        <select class="fsel">
+          <option value="" disabled selected>请选择主题...</option>
+          <option>自动化矿山工作面测绘</option>
+          <option>岩芯编录与分析</option>
+          <option>块度分布分析</option>
+          <option>三维建模与可视化</option>
+          <option>岩体强度估算</option>
+          <option>AI 加速模拟</option>
+          <option>一般咨询</option>
+          <option>合作 / 科研协作</option>
+        </select>
+      </div>
+      <div class="fg"><label class="flbl">留言内容</label><textarea class="fta" placeholder="欢迎介绍您的项目背景、当前挑战与目标诉求..."></textarea></div>
+      <button type="submit" class="fsub">发送信息 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <div class="success-msg" id="successMsg"><p>感谢您的联系，我们会尽快与您沟通。</p></div>
+    </form>
+  </div>
+</div>
+<div class="bottom-strip">
+  <div class="bs-inner">
+    <div class="bs-item reveal"><div class="bs-label">响应时效</div><div class="bs-val">24H</div><div class="bs-desc">我们通常会在 1 个工作日内回复</div></div>
+    <div class="bs-item reveal d1"><div class="bs-label">总部所在地</div><div class="bs-val">AU</div><div class="bs-desc">立足澳大利亚悉尼，服务全球客户</div></div>
+    <div class="bs-item reveal d2"><div class="bs-label">解决方案</div><div class="bs-val">10+</div><div class="bs-desc">覆盖采矿与工程场景的模块化应用</div></div>
+  </div>
+</div>
+<footer><div class="fi">
+  <a href="index.html" class="fl"><div class="flm"><img src="img/seerock-logo.png" alt="SeeRock logo"></div><span class="flt">SeeRock</span></a>
+  <ul class="flinks"><li><a href="technology.html">技术</a></li><li><a href="applications.html">应用</a></li><li><a href="publications.html">论文成果</a></li><li><a href="about.html">关于我们</a></li><li><a href="contact.html">联系我们</a></li></ul>
+  <p class="fc">版权所有 © 2026 SeeRock Pty Ltd</p>
+</div></footer>
+<script>
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  document.getElementById('successMsg').classList.add('show');
+  this.querySelectorAll('.finp,.fta,.fsel').forEach(el=>el.value='');
+  setTimeout(()=>document.getElementById('successMsg').classList.remove('show'),5000);
+});
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let rx=0,ry=0;
+document.addEventListener('mousemove',e=>{cur.style.left=(e.clientX-4)+'px';cur.style.top=(e.clientY-4)+'px';rx+=(e.clientX-18-rx)*0.12;ry+=(e.clientY-18-ry)*0.12;});
+(function l(){ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{cur.style.transform='scale(2.5)';ring.style.width='56px';ring.style.height='56px';});el.addEventListener('mouseleave',()=>{cur.style.transform='scale(1)';ring.style.width='36px';ring.style.height='36px';});});
+const obs=new IntersectionObserver(e=>e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=window.scrollY>60?'rgba(10,13,15,0.97)':'rgba(10,13,15,0.92)';});
+</script>
+</body></html>

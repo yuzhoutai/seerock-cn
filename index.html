@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SeeRock | 洞见更深，开采更智</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0d0f;
+    --bg2: #111518;
+    --bg3: #161c20;
+    --surface: #1a2228;
+    --surface2: #1f2a32;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --accent: #c8a96e;
+    --accent2: #dfc28d;
+    --accent-dim: rgba(200,169,110,0.15);
+    --accent-glow: rgba(200,169,110,0.08);
+    --text: #e8e2d9;
+    --text2: #9da8b0;
+    --text3: #5e6e78;
+    --rock: #2e3d47;
+    --rock2: #3a4f5c;
+    --ff-display: 'Bebas Neue', sans-serif;
+    --ff-serif: 'Instrument Serif', serif;
+    --ff-body: 'DM Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--ff-body); font-size: 16px; line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); opacity: 0.025; pointer-events: none; z-index: 9999; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 4rem; height: 72px; background: rgba(10,13,15,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo-mark { width: 51px; height: 51px; flex-shrink: 0; }
+  .nav-logo-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .nav-logo-text { font-family: var(--ff-display); font-size: 22px; letter-spacing: 0.08em; color: var(--text); }
+  .nav-links { display: flex; align-items: center; gap: 0; list-style: none; }
+  .nav-links a { display: block; padding: 0 1.25rem; color: var(--text2); text-decoration: none; font-size: 13px; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; position: relative; }
+  .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 1.25rem; right: 1.25rem; height: 1px; background: var(--accent); transform: scaleX(0); transition: transform 0.25s ease; transform-origin: left; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-cta { padding: 9px 22px; background: transparent; border: 1px solid var(--accent); border-radius: 4px; color: var(--accent) !important; font-size: 12px !important; letter-spacing: 0.1em !important; transition: background 0.2s, color 0.2s !important; }
+  .nav-cta:hover { background: var(--accent) !important; color: var(--bg) !important; }
+  .nav-cta::after { display: none !important; }
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 120px 4rem 80px 4rem; position: relative; z-index: 2; }
+  .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 2.5rem; }
+  .hero-eyebrow-line { width: 40px; height: 1px; background: var(--accent); }
+  .hero-eyebrow-text { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); font-weight: 400; }
+  .hero-title { font-family: var(--ff-display); font-size: clamp(64px, 7vw, 110px); line-height: 0.92; letter-spacing: 0.02em; color: var(--text); margin-bottom: 2rem; }
+  .hero-title em { font-style: normal; color: var(--accent); }
+  .hero-subtitle { font-family: var(--ff-serif); font-style: italic; font-size: 20px; color: var(--text2); line-height: 1.6; max-width: 440px; margin-bottom: 3rem; }
+  .hero-desc { font-size: 14px; color: var(--text3); line-height: 1.8; max-width: 420px; margin-bottom: 3rem; }
+  .hero-actions { display: flex; align-items: center; gap: 1.5rem; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; background: var(--accent); color: var(--bg); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: background 0.2s, transform 0.2s; }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+  .btn-primary svg { transition: transform 0.2s; }
+  .btn-primary:hover svg { transform: translateX(4px); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 8px; color: var(--text2); font-size: 13px; letter-spacing: 0.05em; text-decoration: none; transition: color 0.2s; }
+  .btn-ghost:hover { color: var(--text); }
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(0.55) saturate(0.6); }
+  .hero-right-overlay { position: absolute; inset: 0; background: linear-gradient(to right, var(--bg) 0%, transparent 30%), linear-gradient(to bottom, transparent 50%, rgba(10,13,15,0.9) 100%); }
+  .hero-right-label { position: absolute; bottom: 3rem; right: 3rem; text-align: right; }
+  .hero-right-label-num { font-family: var(--ff-display); font-size: 80px; line-height: 1; color: rgba(200,169,110,0.15); letter-spacing: 0.05em; }
+  .hero-right-label-text { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text3); }
+  .marquee-wrap { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2); overflow: hidden; padding: 16px 0; }
+  .marquee-track { display: flex; gap: 0; animation: marquee 30s linear infinite; white-space: nowrap; }
+  .marquee-item { display: flex; align-items: center; gap: 2rem; padding: 0 2rem; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text3); flex-shrink: 0; }
+  .marquee-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  section { position: relative; }
+  .section-inner { max-width: 1280px; margin: 0 auto; padding: 0 4rem; }
+  .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
+  .section-label-line { width: 30px; height: 1px; background: var(--accent); }
+  .section-label-text { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); }
+  .section-num { font-family: var(--ff-display); font-size: 11px; letter-spacing: 0.15em; color: var(--text3); margin-left: auto; }
+  .about-section { padding: 120px 0; background: var(--bg); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-img-wrap { position: relative; }
+  .about-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; filter: brightness(0.75) saturate(0.7); }
+  .about-img-frame { position: absolute; top: -16px; left: -16px; right: 16px; bottom: 16px; border: 1px solid var(--accent-dim); border-radius: 2px; pointer-events: none; }
+  .about-tag { position: absolute; bottom: -20px; right: -20px; background: var(--surface); border: 1px solid var(--border2); padding: 20px 24px; border-radius: 2px; }
+  .about-tag-num { font-family: var(--ff-display); font-size: 40px; color: var(--accent); line-height: 1; }
+  .about-tag-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text3); margin-top: 4px; }
+  .about-heading { font-family: var(--ff-display); font-size: clamp(40px, 4vw, 60px); line-height: 1; letter-spacing: 0.03em; color: var(--text); margin-bottom: 1.5rem; }
+  .about-text { font-size: 15px; color: var(--text2); line-height: 1.85; margin-bottom: 2rem; }
+  .about-text em { font-style: italic; color: var(--text); font-family: var(--ff-serif); font-size: 16px; }
+  .tech-section { padding: 120px 0; background: var(--bg2); border-top: 1px solid var(--border); }
+  .tech-top { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-bottom: 80px; }
+  .tech-heading { font-family: var(--ff-display); font-size: clamp(40px, 4vw, 60px); line-height: 1; letter-spacing: 0.03em; color: var(--text); }
+  .tech-intro { font-size: 15px; color: var(--text2); line-height: 1.85; }
+  .tech-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .tech-card { background: var(--bg2); padding: 40px 36px; position: relative; overflow: hidden; transition: background 0.3s; }
+  .tech-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease; }
+  .tech-card:hover { background: var(--surface); }
+  .tech-card:hover::before { transform: scaleX(1); }
+  .tech-card-num { font-family: var(--ff-display); font-size: 48px; color: var(--accent-dim); letter-spacing: 0.05em; line-height: 1; margin-bottom: 1.5rem; transition: color 0.3s; }
+  .tech-card:hover .tech-card-num { color: rgba(200,169,110,0.3); }
+  .tech-card-title { font-family: var(--ff-serif); font-size: 22px; color: var(--text); margin-bottom: 1rem; line-height: 1.3; }
+  .tech-card-text { font-size: 14px; color: var(--text2); line-height: 1.8; }
+  .app-section { padding: 120px 0; background: var(--bg); border-top: 1px solid var(--border); }
+  .app-layout { display: grid; grid-template-columns: 400px 1fr; gap: 80px; align-items: start; }
+  .app-sticky { position: sticky; top: 100px; }
+  .app-heading { font-family: var(--ff-display); font-size: clamp(40px, 4vw, 60px); line-height: 1; letter-spacing: 0.03em; color: var(--text); margin-bottom: 1.5rem; }
+  .app-text { font-size: 15px; color: var(--text2); line-height: 1.85; margin-bottom: 2rem; }
+  .app-showcase { display: flex; flex-direction: column; gap: 24px; }
+  .app-panel { background: var(--bg2); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; transition: border-color 0.3s; }
+  .app-panel:hover { border-color: var(--border2); }
+  .app-panel-img { width: 100%; height: 260px; object-fit: cover; filter: brightness(0.7) saturate(0.6); display: block; }
+  .app-panel-body { padding: 28px 32px; }
+  .app-panel-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .app-panel-title { font-family: var(--ff-serif); font-size: 22px; color: var(--text); line-height: 1.3; margin-bottom: 0.75rem; }
+  .app-panel-text { font-size: 14px; color: var(--text2); line-height: 1.8; }
+  .stats-bar { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 56px 0; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .stat-item { padding: 0 40px; border-right: 1px solid var(--border); }
+  .stat-item:first-child { padding-left: 0; }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: var(--ff-display); font-size: 56px; color: var(--accent); line-height: 1; letter-spacing: 0.03em; margin-bottom: 0.5rem; }
+  .stat-label { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3); }
+  .contact-section { padding: 120px 0; background: var(--bg2); border-top: 1px solid var(--border); }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .contact-heading { font-family: var(--ff-display); font-size: clamp(48px, 5vw, 80px); line-height: 0.95; letter-spacing: 0.03em; color: var(--text); margin-bottom: 1.5rem; }
+  .contact-heading span { display: block; color: var(--accent); }
+  .contact-text { font-size: 15px; color: var(--text2); line-height: 1.85; margin-bottom: 2.5rem; }
+  footer { background: var(--bg); border-top: 1px solid var(--border); padding: 60px 0 40px; }
+  .footer-inner { max-width: 1280px; margin: 0 auto; padding: 0 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .footer-logo-mark { width: 42px; height: 42px; flex-shrink: 0; }
+  .footer-logo-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .footer-logo-text { font-family: var(--ff-display); font-size: 18px; letter-spacing: 0.08em; color: var(--text2); }
+  .footer-links { display: flex; gap: 2rem; list-style: none; flex-wrap: wrap; }
+  .footer-links a { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text2); }
+  .footer-copy { font-size: 12px; color: var(--text3); }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.35s; }
+  .reveal-delay-4 { transition-delay: 0.5s; }
+  .cursor { position: fixed; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 9998; transition: transform 0.15s ease; mix-blend-mode: normal; }
+  .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(200,169,110,0.4); border-radius: 50%; pointer-events: none; z-index: 9997; transition: transform 0.4s ease, width 0.3s, height 0.3s, opacity 0.3s; }
+  .hero-left > * { opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease forwards; }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero-title { animation-delay: 0.25s; }
+  .hero-subtitle { animation-delay: 0.4s; }
+  .hero-desc { animation-delay: 0.55s; }
+  .hero-actions { animation-delay: 0.7s; }
+  @keyframes fadeUp { to { opacity: 1; transform: none; } }
+  .gradient-stripe { position: absolute; top: 0; left: 0; width: 1px; height: 100%; background: linear-gradient(to bottom, transparent, var(--accent), transparent); opacity: 0.3; }
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { height: 50vw; }
+    .hero-right-label-num { font-size: 48px; }
+    .hero-left { padding: 100px 1.5rem 60px; }
+    .about-grid, .tech-top, .app-layout, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+    .tech-cards { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stat-item { padding: 20px; border-right: none; border-bottom: 1px solid var(--border); }
+    .section-inner { padding: 0 1.5rem; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+    .about-tag { position: relative; bottom: auto; right: auto; display: inline-block; margin-top: 1rem; }
+  }
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-mark"><img src="img/seerock-logo.png" alt="SeeRock logo"></div>
+    <span class="nav-logo-text">SeeRock</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">首页</a></li>
+    <li><a href="technology.html">技术</a></li>
+    <li><a href="applications.html">应用</a></li>
+    <li><a href="publications.html">论文成果</a></li>
+    <li><a href="about.html">关于我们</a></li>
+    <li><a href="contact.html" class="nav-cta">联系我们</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">岩体智能平台</span>
+    </div>
+    <h1 class="hero-title">SEE<br>DEEPER,<br>MINE<br><em>SMARTER</em></h1>
+    <p class="hero-subtitle">以 AI 驱动岩体表征，面向采矿行业的未来。</p>
+    <p class="hero-desc">我们融合计算机视觉与人工智能，贯通感知、建模与工程分析，提升岩体表征与地下空间认知效率，将摄影测量影像与钻探岩芯转化为高质量数字化成果。</p>
+    <div class="hero-actions">
+      <a href="technology.html" class="btn-primary">了解技术
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#about" class="btn-ghost">我们的故事
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="img/homepage-1.jpeg" alt="岩体表征" class="hero-img">
+    <div class="hero-right-overlay"></div>
+    <div class="hero-right-label">
+      <div class="hero-right-label-num">3D</div>
+      <div class="hero-right-label-text">点云处理</div>
+    </div>
+  </div>
+</section>
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marquee">
+    <span class="marquee-item"><span class="marquee-dot"></span>计算机视觉</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>人工智能</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>岩体表征</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>摄影测量</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>三维建模</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>岩土工程</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>采矿智能</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>岩芯分析</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>地下认知</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>计算机视觉</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>人工智能</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>岩体表征</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>摄影测量</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>三维建模</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>岩土工程</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>采矿智能</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>岩芯分析</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>地下认知</span>
+  </div>
+</div>
+<div class="stats-bar">
+  <div class="section-inner">
+    <div class="stats-grid">
+      <div class="stat-item reveal"><div class="stat-num">AI</div><div class="stat-label">智能分析</div></div>
+      <div class="stat-item reveal reveal-delay-1"><div class="stat-num">3D</div><div class="stat-label">裂隙测绘</div></div>
+      <div class="stat-item reveal reveal-delay-2"><div class="stat-num">360°</div><div class="stat-label">岩面覆盖</div></div>
+      <div class="stat-item reveal reveal-delay-3"><div class="stat-num">UNLIMITED</div><div class="stat-label">可扩展洞察</div></div>
+    </div>
+  </div>
+</div>
+<section class="about-section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <div class="about-img-frame"></div>
+        <img src="img/homepage-about.jpg" alt="SeeRock 创始团队" class="about-img">
+        <div class="about-tag">
+          <div class="about-tag-num">2026</div>
+          <div class="about-tag-label">创立</div>
+        </div>
+      </div>
+      <div class="about-content">
+        <div class="section-label reveal">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">以专业驱动创新</span>
+          <span class="section-num">02</span>
+        </div>
+        <h2 class="about-heading reveal reveal-delay-1">洞见<br>更深，<br>开采<br><em>更智</em></h2>
+        <p class="about-text reveal reveal-delay-2">SeeRock 由一支深谙传统采矿痛点的学术专家团队创立。<em>我们的目标，是以更具可负担性的方式提升采矿效率与安全水平。</em></p>
+        <p class="about-text reveal reveal-delay-3" style="margin-bottom:0;">扎根科研，让我们不仅能构建软件，更真正理解地质、岩土与现场工程需求。</p>
+        <div style="margin-top:2.5rem" class="reveal reveal-delay-4">
+          <a href="about.html" class="btn-primary">认识团队
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="tech-section">
+  <div class="section-inner">
+    <div class="tech-top">
+      <div>
+        <div class="section-label reveal">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">我们的技术</span>
+          <span class="section-num">03</span>
+        </div>
+        <h2 class="tech-heading reveal reveal-delay-1">我们如何<br>理解<br>岩体</h2>
+      </div>
+      <p class="tech-intro reveal">我们使用 AI 与点云处理技术对岩体裂隙进行三维测绘，将原始影像数据转化为精确、可执行的三维可视化成果，在作业全流程中支持更快、更安全、更有依据的决策。</p>
+    </div>
+    <div class="tech-cards">
+      <div class="tech-card reveal"><div class="tech-card-num">01</div><h3 class="tech-card-title">感知与采集</h3><p class="tech-card-text">高分辨率摄影测量影像与岩芯扫描，为全部下游智能分析提供原始数据基础。</p></div>
+      <div class="tech-card reveal reveal-delay-1"><div class="tech-card-num">02</div><h3 class="tech-card-title">AI 处理</h3><p class="tech-card-text">我们的专有模型可自动识别岩体裂隙、分类不连续面，并高精度提取结构参数。</p></div>
+      <div class="tech-card reveal reveal-delay-2"><div class="tech-card-num">03</div><h3 class="tech-card-title">三维建模</h3><p class="tech-card-text">点云数据被转化为高精度三维表达，让大规模工程分析达到以往难以实现的深度。</p></div>
+    </div>
+  </div>
+</section>
+<section class="app-section">
+  <div class="section-inner">
+    <div class="app-layout">
+      <div class="app-sticky">
+        <div class="section-label reveal">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">我们的应用</span>
+          <span class="section-num">04</span>
+        </div>
+        <h2 class="app-heading reveal reveal-delay-1">经现场<br>验证</h2>
+        <p class="app-text reveal reveal-delay-2">基于真实露天矿图像，我们的系统可自动识别矿山工作面，并将其角度与尺寸映射到三维模型中，呈现快速、准确、清晰的分析结果。</p>
+        <a href="applications.html" class="btn-primary reveal reveal-delay-3" style="display:inline-flex;">查看案例
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="app-showcase">
+        <div class="app-panel reveal">
+          <img src="img/homepage-1.jpeg" alt="露天矿工作面识别" class="app-panel-img">
+          <div class="app-panel-body">
+            <div class="app-panel-label">模块 01 | 工作面识别</div>
+            <h3 class="app-panel-title">自动化矿山工作面测绘</h3>
+            <p class="app-panel-text">实时识别并测绘工作面几何形态，在动态三维模型上叠加精确角度与尺寸数据。</p>
+          </div>
+        </div>
+        <div class="app-panel reveal reveal-delay-1">
+          <img src="img/homepage-about.jpg" alt="岩体分析" class="app-panel-img">
+          <div class="app-panel-body">
+            <div class="app-panel-label">模块 02 | 岩体分析</div>
+            <h3 class="app-panel-title">裂隙网络表征</h3>
+            <p class="app-panel-text">通过 AI 从摄影测量点云中直接识别不连续面、节理组与关键结构特征。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">
+      <div class="footer-logo-mark"><img src="img/seerock-logo.png" alt="SeeRock logo"></div>
+      <span class="footer-logo-text">SeeRock</span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="technology.html">技术</a></li>
+      <li><a href="applications.html">应用</a></li>
+      <li><a href="publications.html">论文成果</a></li>
+      <li><a href="about.html">关于我们</a></li>
+      <li><a href="contact.html">联系我们</a></li>
+    </ul>
+    <p class="footer-copy">版权所有 © 2026 SeeRock Pty Ltd</p>
+  </div>
+</footer>
+<script>
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  cursor.style.left = (e.clientX - 4) + 'px';
+  cursor.style.top = (e.clientY - 4) + 'px';
+  rx += (e.clientX - 18 - rx) * 0.12;
+  ry += (e.clientY - 18 - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+});
+function animateRing() {
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'scale(2.5)';
+    ring.style.width = '56px';
+    ring.style.height = '56px';
+    ring.style.opacity = '0.4';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'scale(1)';
+    ring.style.width = '36px';
+    ring.style.height = '36px';
+    ring.style.opacity = '1';
+  });
+});
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.background = window.scrollY > 60 ? 'rgba(10,13,15,0.97)' : 'rgba(10,13,15,0.85)';
+});
+</script>
+</body>
+</html>
